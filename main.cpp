@@ -49,8 +49,6 @@ template<typename T> void shuffleArr(const size_t len, T arr[], size_t *cmp) {
 template<typename T> bool linearSearch(const vector<T> vec, const T item, size_t *cmp) {
     const size_t len = vec.size();
     for (size_t i = 0; len - i; i++) {
-        // get used to ^^^^^^^^^^^^^^^^^^^ this because it's the only way to track comparisons
-        // for loops, at least
         if (incCmp && vec[i] == item) {return true;}
     }
     return false;
@@ -117,7 +115,7 @@ template<typename T> bool binarySearch(const vector<T> arr, const T item, size_t
  * | return false
  * // Time complexity:
  * Best O(1) hit / O(n) miss
- * Average O(n^3) hit / O(n^3) miss. Yikes!
+ * Average O(n^3 log N) hit / O(n^3 log N) miss. Yikes!
  * Worst O(infinite) hit/miss. well that's to be expected tbh
  * // That's pretty bad, bogosort tier. at least it doesn't check everything
  * // I don't even know how to take the average properly jeez
@@ -190,7 +188,7 @@ template<typename T> bool binarySearch(const vector<T> arr, const T item, size_t
  * sum[k = 1..j] prod[m = 1..k] m + sum[p = 1..m] ln p
  * integrating the innermost for limit behavior, we get
  * sum[k = 1..j] prod[m = 1..k] m + m (log m - 1). huh, that's m log m
- * sum[k = 1..j] prod[m = 1..k] m log m
+ * sum[k = 1..j] prod[m = 2..k] m log m
  * let's separate this into sum[k = 1..j] prod[m = 1..k] m * prod[m = 1..k] log m
  * then we get sum[k = 1..j] m! * prod[m = 2..k] ln m
  * if we want to compress the latter into a sequence we can try
@@ -408,7 +406,7 @@ template<typename T> bool incGenMemRandSearch(const vector<T> vec, T item, size_
  * @param item item to be searched for
  * @param cmp comparison counter
  * @return Whether the item existed
- * @remark Best case: O(1) hit / O(n) miss
+ * @remark Best case: O(N) hit / O(n) miss
  * @remark Average case: O(n) / O(n) miss
  * @remark Worst case: O(n) / O(n) miss
 **/

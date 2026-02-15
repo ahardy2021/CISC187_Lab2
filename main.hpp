@@ -9,7 +9,7 @@
 
 using namespace std;
 
-template<typename T> void shuffleArr(size_t len, T arr[], size_t *cmp);
+template<typename T> void shuffleArr  (size_t len, T arr[], size_t *cmp);
 
 template<typename T> bool linearSearch          (vector<T> vec, T item, size_t *cmp);
 template<typename T> bool binarySearch          (vector<T> arr, T item, size_t *cmp);
