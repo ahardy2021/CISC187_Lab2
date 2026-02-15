@@ -83,7 +83,7 @@ template<typename T> bool binarySearch(const vector<T> arr, const T item, size_t
     while (end - start) {
         // i don't see an equals sign... i'm not counting it
         const size_t mid = (start + end) / 2; // rounds down
-        if (incCmp && arr[mid] < item) {
+        if (incCmp && arr[mid] < item) { // we're too *low*
             start = mid+1; // pushes up
             continue;
         }
