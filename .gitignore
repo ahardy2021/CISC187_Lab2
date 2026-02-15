@@ -1,0 +1,5 @@
+# editor stuff
+.idea/*
+# would rather not give you info about my directory structure
+cmake-build-debug/*
+
